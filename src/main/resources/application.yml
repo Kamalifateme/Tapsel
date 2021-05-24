@@ -1,0 +1,20 @@
+spring:
+  data:
+    cassandra:
+      port: 9042
+      contact-points: localhost
+#      username: cassandra
+#      password: cassandra
+      local-datacenter: datacenter1
+  kafka:
+    producer:
+      bootstrap-servers: 127.0.0.1:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        "spring.json.add.type.headers": false
+    consumer:
+      bootstrap-servers: 127.0.0.1:9092
+      group-id: "person-processor"
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
